@@ -1,13 +1,6 @@
 import type { FitnessFunction } from "./fitness-function";
 import { IncompatibleDimensionsError } from "./exceptions/incompatible-dimensions-error";
-
-const generateRandomArray = (numberOfDimensions: number) => {
-  const array = [];
-  for (let i = 0; i < numberOfDimensions; i++) {
-    array.push(Math.random());
-  }
-  return array;
-};
+import { generateRandomArray } from "./utils";
 
 export class Particle {
   public velocity: Array<number>;
