@@ -69,6 +69,7 @@ export class Particle {
       this.numberOfDimensions,
       this.fitnessFunction,
       this.velocity,
+      this.position,
       this.personalBestPosition,
     );
   }
