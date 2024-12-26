@@ -52,16 +52,16 @@ export class Particle {
           (globalBestPosition[dimension] - this.position[dimension])
       );
     });
-
-    if (this.personalBestFitness < this.fitness) {
-      this.personalBestPosition = this.position;
-    }
   }
 
   updatePosition() {
     this.position = this.position.map(
       (value, dimension) => (value += this.velocity[dimension]),
     );
+
+    if (this.personalBestFitness < this.fitness) {
+      this.personalBestPosition = this.position;
+    }
   }
 
   get clone(): Particle {
