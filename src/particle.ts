@@ -3,6 +3,10 @@ import { IncompatibleDimensionsError } from "./exceptions/incompatible-dimension
 import { generateRandomArray } from "./utils";
 
 export class Particle {
+  static INERTIA_WEIGHT = 0.9;
+  static COGNITIVE_COEFFICIENT = 0.5;
+  static SOCIAL_COEFFICIENT = 0.5;
+
   public velocity: Array<number>;
   public position: Array<number>;
   public personalBestPosition: Array<number>;
@@ -43,11 +47,11 @@ export class Particle {
     }
     this.velocity = this.velocity.map((value, dimension) => {
       return (
-        value +
-        2 *
+        Particle.INERTIA_WEIGHT * value +
+        Particle.COGNITIVE_COEFFICIENT *
           Math.random() *
           (this.personalBestPosition[dimension] - this.position[dimension]) +
-        2 *
+        Particle.SOCIAL_COEFFICIENT *
           Math.random() *
           (globalBestPosition[dimension] - this.position[dimension])
       );
