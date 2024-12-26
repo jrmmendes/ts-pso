@@ -58,6 +58,12 @@ export class Particle {
     }
   }
 
+  updatePosition() {
+    this.position = this.position.map(
+      (value, dimension) => (value += this.velocity[dimension]),
+    );
+  }
+
   get clone(): Particle {
     return new Particle(
       this.numberOfDimensions,
