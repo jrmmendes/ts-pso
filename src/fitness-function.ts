@@ -1,0 +1,1 @@
+export type FitnessFunction = (args: Array<number>) => number;
